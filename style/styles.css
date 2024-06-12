@@ -1,0 +1,34 @@
+.bg-red {
+    background-color: rgb(224, 15, 15);
+}
+
+.bg-aquamarine {
+    background-color: rgb(172, 241, 218);
+}
+
+.main {
+    margin: 20px;
+    display: relative;
+}
+
+.screen {
+    margin-bottom: 20px;
+    padding: 20px;
+    display: absolute;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.sideScreen {
+    border: 1px solid black;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 500px;
+    width: 600px;
+    display: absolute;
+}
+
+.habilitie p {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>PokeScript</title> <!-- Corrigir alguns detalhes de layout e incrementar a página com icones, botões e funções -->
+    <!-- Funções a se inserir:
+        Favoritar pokemon
+        colecionar pokemons
+        mostrar shines
+        fazer amigos?
+        fazer perfil?
+        fazer um jogo pvp de cards ou pokemons de rodadas?
+     -->
+</head>
+<body class="bg-red">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Navbar com o objetivo de fazer um dropdown no mecanismo de busca acompanhando cada letra que for escrita na barra de navegação, portanto filtrando os pokemons no dorpdown a cada letra digitada -->
+        <label class="navbar-brand" for="search">
+            <input type="text" id="search" class="searchName form-control" placeholder="Search Pokemon">
+        </label>
+    </nav>
+
+    <div class="container main">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 d-flex flex-column align-items-center">
+                <div class="screen bg-aquamarine">
+                    <h3>Name</h3> <!-- Inserir o nome consumindo a API -->
+                    <div class="pokeImg justify-content-center d-flex">
+                        <img src="#" alt=""> <!-- Inserir a imagem consumindo a API -->
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-6 d-flex flex-column align-items-center">
+                <div class="sideScreen">
+                    <h4>Habilities</h4> <!-- Inserir as habilidades consumindo a API -->
+                    <div class="habilitie row">
+                        <p class="col-md-6">habilidade</p>
+                        <p class="col-md-6">habilidade</p>
+                        <p class="col-md-6">habilidade</p>
+                        <p class="col-md-6">habilidade</p>
+                    </div>
+                    <hr>
+                    <div class="type">
+                        <h3>Type</h3> <!-- Inserir os tipo consumindo a API -->
+                        <p class="pokeType">Lorem</p>
+                    </div>
+                    <div class="infos">
+                        <h3>Infos</h3> <!-- Inserir as informações consumindo a API -->
+                        <p class="pokeInfo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus ipsam expedita odio recusandae ex eaque sunt repellat necessitatibus autem hic, doloremque dignissimos iusto veritatis quas sit esse pariatur numquam dolorum?</p>
+                    </div>
+                    <div class="weakness">
+                        <h3>Weaknesses</h3> <!-- Inserir as fraquezas consumindo a API -->
+                        <p class="pokeWeak">Lorem</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
