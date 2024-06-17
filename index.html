@@ -3,67 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <title>PokeScript</title> <!-- Corrigir alguns detalhes de layout e incrementar a página com icones, botões e funções -->
-    <!-- Funções a se inserir:
-        Favoritar pokemon
-        colecionar pokemons
-        mostrar shines
-        fazer amigos?
-        fazer perfil?
-        fazer um jogo pvp de cards ou pokemons de rodadas?
-     -->
+    <link rel="stylesheet" href="style/styles.css">
+    <title>PokeScript</title>
 </head>
 <body class="bg-red">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Navbar com o objetivo de fazer um dropdown no mecanismo de busca acompanhando cada letra que for escrita na barra de navegação, portanto filtrando os pokemons no dorpdown a cada letra digitada -->
-        <label class="navbar-brand" for="search">
-            <input type="text" id="search" class="searchName form-control" placeholder="Search Pokemon">
-        </label>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PokeScript</a>
+            <div class="d-flex position-relative">
+                <input class="form-control me-2" type="search" placeholder="Search Pokémon" id="search" autocomplete="off">
+                <div id="searchSuggestions"></div>
+                <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+            </div>
+        </div>
     </nav>
 
     <div class="container main">
 
         <div class="row justify-content-center">
-            <div class="col-md-6 d-flex flex-column align-items-center">
-                <div class="screen bg-aquamarine">
-                    <h3>Name</h3> <!-- Inserir o nome consumindo a API -->
-                    <div class="pokeImg justify-content-center d-flex">
-                        <img src="#" alt=""> <!-- Inserir a imagem consumindo a API -->
+
+            <div class="col-md-6">
+                <div class="screen bg-aquamarine p-4">
+                    <div class="pokeImg d-flex justify-content-center">
+                        <img id="pokemonImg" src="assets/2233235_0c846.png" alt="Pokemon Image" class="img-fluid">  <!-- Pokemon img --> 
                     </div>
-                    
                 </div>
             </div>
 
-            <div class="col-md-6 d-flex flex-column align-items-center">
-                <div class="sideScreen">
-                    <h4>Habilities</h4> <!-- Inserir as habilidades consumindo a API -->
-                    <div class="habilitie row">
-                        <p class="col-md-6">habilidade</p>
-                        <p class="col-md-6">habilidade</p>
-                        <p class="col-md-6">habilidade</p>
-                        <p class="col-md-6">habilidade</p>
+            <div class="col-md-6">
+                <div class="sideScreen bg-light p-4 d-none">
+
+                    <h2 id="pokemonName" class="text-center">Name</h2>
+                    <h7 id="pokemonSurname" class="text-center">Surname</h7>
+
+                    <div class="poke dex">
+                        <h6>National Dex Number:    </h6>
+                        <h6 id="pokemonDexNumber"></h6>
                     </div>
-                    <hr>
-                    <div class="type">
-                        <h3>Type</h3> <!-- Inserir os tipo consumindo a API -->
-                        <p class="pokeType">Lorem</p>
+
+                    <div class="poke legendary">
+                        <h6>Legendary Status:   </h6>
+                        <h6 id="pokemonLegendary"></h6>
                     </div>
-                    <div class="infos">
-                        <h3>Infos</h3> <!-- Inserir as informações consumindo a API -->
-                        <p class="pokeInfo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus ipsam expedita odio recusandae ex eaque sunt repellat necessitatibus autem hic, doloremque dignissimos iusto veritatis quas sit esse pariatur numquam dolorum?</p>
+
+                    <div class="poke mythical">
+                        <h6>Mythical Status:   </h6>
+                        <h6 id="pokemonMythical"></h6>
                     </div>
-                    <div class="weakness">
-                        <h3>Weaknesses</h3> <!-- Inserir as fraquezas consumindo a API -->
-                        <p class="pokeWeak">Lorem</p>
+                        
+                    <div class="poke type">
+                        <h4>Type:</h4>
+                        <p id="pokemonType"></p>
+                    </div>
+
+                    <div class="poke region">
+                        <h4>Region:</h4>
+                        <p id="pokemonRegion"></p>
+                    </div>
+
+                    <div class="poke local">
+                        <h4>Habitat:</h4>
+                        <p id="pokemonHabitat"></p>
+                    </div>
+
+                    <div class="abilities">
+                        <h4>Abilities</h4>
+
+                        <div id="abilitiesList" class="ability row">
+                        </div>
+
+                    </div>
+
+                    <div class="moves">
+                        <h4>Moves</h4>
+                        <div id="movesList" class="move row">
+                            <p id="move1" class="col-md-6"></p>
+                            <p id="move2" class="col-md-6"></p>
+                            <p id="move3" class="col-md-6"></p>
+                            <p id="move4" class="col-md-6"></p>
+                        </div>
+                    </div>
+
+                    <div class="Stats mt-4">
+                        <h4>Base Stats</h4>
+                        <p id="hpBase"></p>
+                        <p id="attackBase"></p>
+                        <p id="defenseBase"></p>
+                        <p id="specialAttackBase"></p>
+                        <p id="specialDefenseBase"></p>
+                        <p id="speedBase"></p>
+
+                    </div>
+
+                    <div class="info">
+                        <h4>Info</h4>
+                        <p id="evolveFrom"></p>
+                        <p id="pokemonInfo" class="pokeInfo"></p>
                     </div>
                 </div>
             </div>
             
         </div>
+
     </div>
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
